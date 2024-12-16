@@ -1,8 +1,8 @@
-import { prismaClient } from "../lib/prismaClient";
-import { InvalidCredentials } from "../erros/InvalidCredentials";
-import { compare } from "bcryptjs";
-import { sign } from "jsonwebtoken";
-import { env } from "../config/env";
+import { prismaClient } from '../lib/prismaClient';
+import { InvalidCredentials } from '../erros/InvalidCredentials';
+import { compare } from 'bcryptjs';
+import { sign } from 'jsonwebtoken';
+import { env } from '../config/env';
 
 
 interface IInput {
@@ -14,8 +14,9 @@ interface IOutput {
   accessToken: string;
 }
 
-export class SignUpUseCase {
- async call({ email, password }: IInput): Promise<IOutput> {
+export class SignInUseCase {
+
+  async call({ email, password }: IInput): Promise<IOutput> {
     const account = await prismaClient.account.findUnique({
       where: { email },
     });
@@ -37,7 +38,7 @@ export class SignUpUseCase {
     );
 
     return {
-      accessToken
+      accessToken,
     };
   }
 }
