@@ -1,0 +1,19 @@
+POST http://localhost:3008/sign-up
+Content-Type: application/json
+
+{
+  "name": "Carlos Lima",
+  "email": "carlos@gmail.com",
+  "password": "suaSenhaSegura01"
+}
+
+
+### POST /sign-up
+POST http://localhost:3008/sign-in
+Content-Type: application/json
+
+{
+  "email": "carlos@gmail.com",
+  "password": "suaSenhaSegura01"
+}
+
